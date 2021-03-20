@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="9b4785cc-a789-4407-b97c-7e695007e42f" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="jenkins-demoFlow" doc:id="36d2784d-333e-4110-9f46-da49146ac7d8" >
+		<http:listener doc:name="Listener" doc:id="f78f9101-7c54-4572-8a02-ebee8613eb22" config-ref="HTTP_Listener_config" path="/jenkins"/>
+		<set-payload value='#["Hello jenkins from Studio to GitHub to Jenkins to Cloudhub! ሰላም ተደረሰ?!"]' doc:name="Set Payload" doc:id="b0dc4bd4-1d80-45e7-a518-694294da445c" />
+	</flow>
+</mule>
